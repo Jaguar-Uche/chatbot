@@ -8,7 +8,12 @@ import cors from'cors'
 config();
 const app = express();
 
-app.use(cors({origin:"http://jaguar-uche.com", credentials:true}))
+app.use(cors({origin: [
+    "https://jaguar-uche.com",
+    "http://jaguar-uche.com",
+    "https://www.jaguar-uche.com",
+    "http://www.jaguar-uche.com",
+    ], credentials:true}))
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
