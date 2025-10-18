@@ -30,7 +30,7 @@ export const userSignUp = async (req:Request,res:Response, next:NextFunction)=>{
 
       res.clearCookie(COOKIE_NAME,{
       httpOnly:true,
-      domain:'localhost',
+      domain:'https://jaguar-uche.com/projects/chatbot/',
       //the domain assigned to me
       signed:true,
       path:'/',
@@ -41,7 +41,7 @@ export const userSignUp = async (req:Request,res:Response, next:NextFunction)=>{
     const token = createToken(user._id.toString(), user.email, '7d')
     res.cookie(COOKIE_NAME, token, {
       path:'/', 
-      domain:'localhost',
+      domain:'https://jaguar-uche.com/projects/chatbot/',
       //domain name
       expires,
       httpOnly:true,
@@ -72,7 +72,7 @@ export const userLogin = async (req:Request,res:Response, next:NextFunction)=>{
 
     res.clearCookie(COOKIE_NAME,{
       httpOnly:true,
-      domain:'localhost',
+      domain:'https://jaguar-uche.com/projects/chatbot/',
       //this should be my domain
       signed:true,
       path:'/',
@@ -83,7 +83,7 @@ export const userLogin = async (req:Request,res:Response, next:NextFunction)=>{
     const token = createToken(user._id.toString(), user.email, '7d')
     res.cookie(COOKIE_NAME, token, {
       path:'/', 
-      domain:'localhost',
+      domain:'https://jaguar-uche.com/projects/chatbot/',
       //the domain assigned to me
       expires,
       httpOnly:true,
@@ -126,7 +126,7 @@ export const userLogout = async (req:Request,res:Response, next:NextFunction)=>{
 
     res.clearCookie(COOKIE_NAME,{
       httpOnly:true,
-      domain:'localhost',
+      domain:'https://jaguar-uche.com/projects/chatbot/',
       //domain assigned to me
       signed:true,
       path:'/',
