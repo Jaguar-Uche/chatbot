@@ -30,6 +30,8 @@ export const userSignUp = async (req:Request,res:Response, next:NextFunction)=>{
 
       res.clearCookie(COOKIE_NAME,{
       httpOnly:true,
+      sameSite:"none",
+      secure:true,
       //the domain assigned to me
       signed:true,
       path:'/',
@@ -41,6 +43,8 @@ export const userSignUp = async (req:Request,res:Response, next:NextFunction)=>{
     res.cookie(COOKIE_NAME, token, {
       path:'/', 
       //domain name
+      sameSite:"none",
+      secure:true,
       expires,
       httpOnly:true,
       signed:true,
@@ -71,6 +75,8 @@ export const userLogin = async (req:Request,res:Response, next:NextFunction)=>{
     res.clearCookie(COOKIE_NAME,{
       httpOnly:true,
       //this should be my domain
+      sameSite:"none",
+      secure:true,
       signed:true,
       path:'/',
     })
@@ -80,6 +86,8 @@ export const userLogin = async (req:Request,res:Response, next:NextFunction)=>{
     const token = createToken(user._id.toString(), user.email, '7d')
     res.cookie(COOKIE_NAME, token, {
       path:'/', 
+      sameSite:"none",
+      secure:true,
       //the domain assigned to me
       expires,
       httpOnly:true,
